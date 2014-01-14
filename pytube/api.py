@@ -238,14 +238,16 @@ class YouTube(object):
 
             for idx in range(len(video_urls)):
                 url = video_urls[idx]
-                signature = video_signatures[idx]
+                
+                if idx in video_signatures:
+                    #Add video signature to url
+                    url = "{0}&signature={1}".format(url, signature)
+                
                 try:
                     fmt, data = self._extract_fmt(url)
                 except (TypeError, KeyError):
                     pass
                 else:
-                    #Add video signature to url
-                    url = "{0}&signature={1}".format(url, signature)
                     v = Video(url, self.filename, **data)
                     self.videos.append(v)
                     self._fmt_values.append(fmt)
