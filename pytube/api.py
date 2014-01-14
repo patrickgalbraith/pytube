@@ -275,7 +275,7 @@ class YouTube(object):
             map(lambda k, v: data.update({k: v}), YT_ENCODING_KEYS, attr)
             return itag, data
             
-    def _static_decrypt_signature(self, s, video_id, player_url, age_gate):
+    def _static_decrypt_signature(self, s, age_gate=None):
         if age_gate:
             # The videos with age protection use another player, so the
             # algorithms can be different.
