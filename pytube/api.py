@@ -187,6 +187,7 @@ class YouTube(object):
         data -- The parsed response from YouTube.
         """
         videoinfo = {
+            "s": [],
             "itag": [],
             "url": [],
             "quality": [],
