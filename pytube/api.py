@@ -241,8 +241,8 @@ class YouTube(object):
                 
                 if idx in video_signatures:
                     #Add video signature to url
-                    url = "{0}&signature={1}".format(url, signature)
-                else stream_map["s"].length > 0:
+                    url = "{0}&signature={1}".format(url, video_signatures[idx])
+                elif stream_map["s"].length > 0:
                     encrypted_sig = self._static_decrypt_signature(stream_map["s"])
                     url = "{0}&signature={1}".format(url, encrypted_sig)
                 
